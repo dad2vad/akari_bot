@@ -1,3 +1,4 @@
+process.env["NTBA_FIX_319"] = 1;
 const fetch = require('node-fetch');
 const telegram_key = require('./config');
 
@@ -104,7 +105,16 @@ var url = 'https://graphql.anilist.co',
                    .then(function(data){
                       var arrResults = [];
                       data.data.Page.media.forEach(function(obj){
-                        //console.log(obj)
+                        if(obj.startDate.year === null){
+                          obj.startDate.year = "Not available";
+                        }
+                        if(obj.chapters === null){
+                          obj.chapters = "-";
+                        }
+                        if(obj.episodes === null){
+                          obj.episodes = "-";
+                        }
+                      
                         arrResults.push({
                           type: "article",
                           id: obj.id,
@@ -124,7 +134,7 @@ var url = 'https://graphql.anilist.co',
                           }
                         });
                       });
-
+                      
                       telegram.answerInlineQuery(iquery.id, arrResults);
                    })
                    .catch(handleError);
