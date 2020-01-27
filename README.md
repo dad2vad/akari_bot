@@ -7,5 +7,7 @@ Inline Telegram bot for searching information about animes and mangas.
 
 I used [AniList API V2 GraphQL](https://github.com/AniList/ApiV2-GraphQL-Docs) for this.
 
+Soon Akari 2.0
+
 
 
