@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 var TelegramBot = require('node-telegram-bot-api'),
-telegram = new TelegramBot(process.env.MY_KEY, { polling: true });
+telegram = new TelegramBot(process.env.MY_KEY, { polling: true }, {webHook: {port: process.env.PORT}});
 
 
 //INLINE QUERY
