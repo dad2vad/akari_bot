@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 var TelegramBot = require('node-telegram-bot-api'),
-telegram = new TelegramBot(process.env.MY_KEY, { polling: true }, {webHook: {port: process.env.PORT, host = '0.0.0.0'}});
+telegram = new TelegramBot(process.env.MY_KEY, { polling: true }, {webHook: {port: process.env.PORT, host : '0.0.0.0'}});
 telegram.setWebHook('https://akariii-bot.herokuapp.com/' + ':443/bot' + process.env.MY_KEY);
 
 //INLINE QUERY
