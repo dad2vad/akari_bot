@@ -1,9 +1,10 @@
 process.env["NTBA_FIX_319"] = 1;
 const fetch = require('node-fetch');
-const telegram_key = require('./config');
+//const telegram_key = require('./config');
+require('dotenv').config();
 
 var TelegramBot = require('node-telegram-bot-api'),
-telegram = new TelegramBot(telegram_key.MY_KEY, { polling: true });
+telegram = new TelegramBot(process.env.MY_KEY, { polling: true });
 
 
 //INLINE QUERY
